@@ -23,5 +23,18 @@ the following form: YYYY.0M.0D.
 
 ### Removed
 
+## [2024.10.02]
 
+### Added
+
+- ProofOfConcept implementation of kernel methods.
+
+### Changed
+
+- Uses ArrayList instead of Sequence for visit dates.
+- removePatient() returns the entire patient object instead of just the PCP
+### Fixed
+
+
+### Removed
 
