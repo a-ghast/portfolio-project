@@ -1,12 +1,11 @@
 # Portfolio Part 1: Component Brainstorming
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: Andrew Ghastine
+- **Dot Number**: ghastine.3
+- **Due Date**: 9/13/2024 @ 3:00 PM
 
 ## Assignment Overview
 
-<!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
@@ -29,8 +28,6 @@ implement.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
-
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
 opening the TODOs window from the sidebar. The icon looks like a tree and will
@@ -51,8 +48,6 @@ to the tree diagram (you may remove this one as well):
 ```
 
 ## Assignment Learning Objectives
-
-<!-- TODO: read the assignment learning objectives then delete this comment -->
 
 Without learning objectives, there really is no clear reason why a particular
 assessment or activity exists. Therefore, to be completely transparent, here is
@@ -98,23 +93,17 @@ do good work.
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+I'm a premed Data Analytics major, and my ultimate goal is to do medicine and data science for clinical purposes. My research is around youth experiencing homelessness and substance use disorders, and a hobby of mine is learning languages.
 
 ## Assignment
 
-<!-- TODO: read the assignment section then delete this comment -->
+
 
 As previously stated, you are tasked with brainstorming 3 possible components.
 To aid you in this process, we have provided [some example components][example-components]
 that may help you in your brainstorming. All of these components were made at
 some point by one of your peers, so you should feel confident that you can
 accomplish any of them.
-
-<!-- TODO: browse the list of possible projects then delete this comment -->
 
 There is no requirement that you use any of the components listed above.
 If you want to model something else, go for it! Very common early object
@@ -124,7 +113,6 @@ you're just brainstorming right now. You do not have to commit to anything.
 
 ### Example Component
 
-<!-- TODO: review this example component then delete this comment -->
 
 To help you brainstorm a few components, we've provided an example below of a
 component you already know well: NaturalNumber. We highly recommend that you
@@ -192,70 +180,89 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: patientPanel
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - Stores information about patients in a health system (name, PCP, list of visit dates).
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `addPatient(String name, String PCP)` adds a patient
+    - `removePatient(String name, Sequence<String> dates)` removes patient, returns PCP, stores visit dates in `dates`.
+    - `getVisits(String name)` returns sequence of patient visit dates
+    - `size()` returns the number of patients in the panel.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `addVisit(String patient, String visit)` adds a visit to patient's visits.
+    - `updatePCP(String patient, String PCP)` updates a patient's PCP to `PCP`
+    - `providerPanel(String PCP)` returns a sequence of all patients with a given PCP.
+    - `changeName(String oldName, String newName)` changes the name of a given patient.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Definitely, a health system would want to be able to update how many patients they have, who their PCP is, and when they have used care.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Maybe could use an internal class `patient` that would store all of that, and then this would just be a set of `patient` objects.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes--kernel methods allow me to view and access all necessary elements (patient name, PCP, and visits).
 
 
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: conlangFamily
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - Models a family of words in a constructed language based on Arabic given a trilateral (3-sound) root, and inflects based on number, case, or semantics. All derived words roughly follow how Arabic morphology works.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `phoneme1()` returns the first phoneme in the trilateral root.
+    - `phoneme2()` returns the second phoneme in the trilateral root.
+    - `phoneme3()` returns the third phoneme in the trilateral root.
+    - `rootMeaning()` returns String of the basic idea of the root's meaning.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `form1Verb()` returns a String of the root represented as a form 1 verb (basic meaning of the root as a verb, ex. to write).
+    - `form2Verb()` returns a String of the root represented as a form 2 verb (a transitive verb representing the meaning, ex. to make something write).
+    - `place()` returns a String of the root represented as a noun of place (ex. an office).
+    - `instrument()` returns a String of the root represented as a noun of instrument (ex. a pen).
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No. There would be no need to update the root or meaning.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No. It would probably just use a string or maybe array.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, all derived words can be written with the components of the root.
 
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3: tibble
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - Trying to roughly model a tibble in the tidyverse in R with Java.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `removeColumn(String header)` removes and returns a Sequence representing the column at index k of the tibble
+    - `addColumn(String header, Sequence<T> column)` adds a column to the end of the tibble
+    - `headers()` returns the list of headers in the tibble.
+    - `width()` returns the number of columns in the tibble
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `getValue(String column, int row)` returns the value of a cell given the header of its column and its row.
+    - `getRow(int row)` returns an entire row of information across columns.
+    - `average(String column)` returns an average of the values of a row with int or double values.
+    - `editCell(String column, int row, T newValue)` updates the value of a cell in a given column and row to `newValue`.
+    - `length()` returns the number of rows in the tibble.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes--columns would be able to be added, and cell values could be changed.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No, a sequence is used for each column, and no other classes are necessary.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, being able to access and edit each column and the width of the table should enable all of the secondary methods.
 
 ## Post-Assignment
 
@@ -264,7 +271,6 @@ completed the assignment.
 
 ### Changelog
 
-<!-- TODO: create CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -303,7 +309,6 @@ of development.
 
 ### Submission
 
-<!-- TODO: read the submission instructions then delete this comment -->
 
 If you have completed the assignment using this template, we recommend that
 you convert it to a PDF before submission. If you're not sure how, check out
@@ -313,11 +318,9 @@ all your work is there before submitting. For future assignments, you will
 just be submitting a link to a pull request. This will be the only time
 you have to submit any PDFs.
 
-<!-- TODO: upload a PDF of this document and the CHANGELOG to Carmen then delete this comment -->
 
 ### Peer Review
 
-<!-- TODO: review the peer review guidelines then delete this comment -->
 
 Following the completion of this assignment, you will be assigned three
 students' component brainstorming assignments for review. Your job during the
@@ -344,7 +347,6 @@ If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
 
-<!-- TODO: follow the link to share your feedback then delete this comment -->
 
 [example-components]: https://therenegadecoder.com/code/the-never-ending-list-of-small-programming-project-ideas/
 [markdown-to-pdf-guide]: https://therenegadecoder.com/blog/how-to-convert-markdown-to-a-pdf-3-quick-solutions/
