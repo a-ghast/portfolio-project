@@ -38,3 +38,16 @@ the following form: YYYY.0M.0D.
 
 ### Removed
 
+## [2024.10.15]
+
+### Added
+
+- Interfaces for Patient, PatientPanel, and PatientPanelKernel. I tried to nest Patient inside PatientPanel Kernel but it wouldn't resolve it in PatientPanel, so I made it a separate file. I realize that probably means I'll have to implement it in its own file later, too.
+
+### Changed
+- ProofOfConcept made into PatientPanel1 with main method as starter for kernel implementation.
+
+### Fixed
+- Patient internal class in PatientPanel1 wasn't constructing the dates field, so I added it.
+
+### Removed

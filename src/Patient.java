@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import components.standard.Standard;
 
 /**
- * PatientPanel kernel component with primary methods.
+ * Patient kernel component with primary methods.
  *
  * @author A. Ghastine
  */
