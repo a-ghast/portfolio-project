@@ -5,98 +5,110 @@ import java.util.ArrayList;
  *
  * @author A. Ghastine
  */
-public final class PatientPanel1 {
+public final class PatientPanel1 extends PatientPanelSecondary {
 
-    /**
-     * Private class of Patient with name, PCP, and dates fields.
-     */
-    public final class Patient {
-        /**
-         * the Patient's name.
-         */
-        private String name;
+    // /**
+    //  * Public class of Patient with name, PCP, and dates fields.
+    //  */
+    // public final class Patient {
+    //     /**
+    //      * the Patient's name.
+    //      */
+    //     private String name;
 
-        /**
-         * returns name.
-         *
-         * @return name
-         */
-        public String name() {
-            return this.name;
-        }
+    //     /**
+    //      * returns name.
+    //      *
+    //      * @return name
+    //      */
+    //     public String name() {
+    //         return this.name;
+    //     }
 
-        /**
-         * The patient's PCP.
-         */
-        private String pcp;
+    //     /**
+    //      * The patient's PCP.
+    //      */
+    //     private String pcp;
 
-        /**
-         * returns name.
-         *
-         * @return name
-         */
-        public String pcp() {
-            return this.pcp;
-        }
+    //     /**
+    //      * returns name.
+    //      *
+    //      * @return name
+    //      */
+    //     public String pcp() {
+    //         return this.pcp;
+    //     }
 
-        /**
-         * the visit dates.
-         */
-        private ArrayList<String> dates;
+    //     /**
+    //      * the visit dates.
+    //      */
+    //     private ArrayList<String> dates;
 
-        /**
-         * returns dates.
-         *
-         * @return dates
-         */
-        public ArrayList<String> dates() {
-            return this.dates;
-        }
+    //     /**
+    //      * returns dates.
+    //      *
+    //      * @return dates
+    //      */
+    //     public ArrayList<String> dates() {
+    //         return this.dates;
+    //     }
 
-        /**
-         * Constructor.
-         *
-         * @param n
-         * @param p
-         */
-        public Patient(String n, String p) {
-            this.name = n;
-            this.pcp = p;
-            this.dates = new ArrayList<String>();
-        }
+    //     /**
+    //      * Constructor.
+    //      *
+    //      * @param n
+    //      * @param p
+    //      */
+    //     public Patient(String n, String p) {
+    //         this.name = n;
+    //         this.pcp = p;
+    //         this.dates = new ArrayList<String>();
+    //     }
 
-        /**
-         * implementing independent .equals() methods so the patient can be
-         * identified in remove. This means the patients are solely identifiable
-         * by name and PCP.
-         *
-         * @param obj
-         *            the obj compared
-         * @return result
-         */
-        @Override
-        public boolean equals(Object obj) {
-            boolean result = false;
-            if (this == obj) {
-                result = true;
-            }
-            if (obj != null && this.getClass() == obj.getClass()) {
-                Patient patient = (Patient) obj;
-                result = this.name.equals(patient.name)
-                        && this.pcp.equals(patient.pcp);
-            }
-            return result;
-        }
+    //     /**
+    //      * implementing independent .equals() methods so the patient can be
+    //      * identified in remove. This means the patients are solely identifiable
+    //      * by name and PCP.
+    //      *
+    //      * @param obj
+    //      *            the obj compared
+    //      * @return result
+    //      */
+    //     @Override
+    //     public boolean equals(Object obj) {
+    //         boolean result = false;
+    //         if (this == obj) {
+    //             result = true;
+    //         }
+    //         if (obj != null && this.getClass() == obj.getClass()) {
+    //             Patient patient = (Patient) obj;
+    //             result = this.name.equals(patient.name())
+    //                     && this.pcp.equals(patient.pcp())
+    //                     && this.dates.equals(patient.dates());
+    //         }
+    //         return result;
+    //     }
 
-        /**
-         * implementing independent hashCode method so the patient can be
-         * identified in remove.
-         */
-        @Override
-        public int hashCode() {
-            return this.name.hashCode() + this.pcp.hashCode();
-        }
-    }
+    //     /**
+    //      * implementing independent hashCode method so the patient can be
+    //      * identified in remove.
+    //      */
+    //     @Override
+    //     public int hashCode() {
+    //         return this.name.hashCode() + this.pcp.hashCode();
+    //     }
+
+    //     /**
+    //      * implementing independent hashCode method so the patient can be
+    //      * identified in remove.
+    //      */
+    //     @Override
+    //     public String toString() {
+    //         String result = "(" + this.name() + ", " + this.pcp() + ", "
+    //                 + this.dates() + ")";
+    //         return result;
+    //     }
+    // }
 
     /**
      * representation of patient panel.
@@ -116,8 +128,20 @@ public final class PatientPanel1 {
      * @param name
      * @param pcp
      */
+    @Override
     public void addPatient(String name, String pcp) {
-        this.patients.add(new Patient(name, pcp));
+        this.patients.add(new Patient1(name, pcp));
+    }
+
+    /**
+     * adds an existing patient.
+     *
+     * @param pat
+     *            the Patient object to add.
+     */
+    @Override
+    public void addPatient(Patient pat) {
+        this.patients.add(pat);
     }
 
     /**
@@ -129,15 +153,29 @@ public final class PatientPanel1 {
      * @return the removed patient.
      *
      */
+    @Override
     public Patient removePatient(String name, String pcp) {
         return this.patients
-                .remove(this.patients.lastIndexOf(new Patient(name, pcp)));
+                .remove(this.patients.lastIndexOf(new Patient1(name, pcp)));
+    }
+
+    /**
+     * returns whether the Panel contains a Patient.
+     *
+     * @param patient
+     * @return whether the Panel contains a Patient.
+     *
+     */
+    @Override
+    public boolean containsPatient(Patient patient) {
+        return this.patients.lastIndexOf(patient) != -1;
     }
 
     /**
      * @return patientPanel size
      *
      */
+    @Override
     public int size() {
         return this.patients.size();
     }
@@ -149,9 +187,23 @@ public final class PatientPanel1 {
      * @param pcp
      * @return alias to the visit dates ArrayList.
      */
+    @Override
     public ArrayList<String> getVisits(String name, String pcp) {
         return this.patients
-                .get(this.patients.lastIndexOf(new Patient(name, pcp))).dates;
+                .get(this.patients.lastIndexOf(new Patient1(name, pcp)))
+                .dates();
+    }
+
+    /**
+     * removes an arbitrarily chosen patient and returns it.
+     *
+     * @requires [@code this is not empty]
+     * @return a removed patient.
+     *
+     */
+    @Override
+    public Patient removeAny() {
+        return this.patients.remove(0);
     }
 
     /**
@@ -174,4 +226,25 @@ public final class PatientPanel1 {
         System.out.println(removed.pcp());
         System.out.println(removed.dates());
     }
+
+    @Override
+    public void clear() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+    }
+
+    @Override
+    public PatientPanelKernel newInstance() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException(
+                "Unimplemented method 'newInstance'");
+    }
+
+    @Override
+    public void transferFrom(PatientPanelKernel arg0) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException(
+                "Unimplemented method 'transferFrom'");
+    }
+
 }
