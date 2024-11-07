@@ -51,3 +51,18 @@ the following form: YYYY.0M.0D.
 - Patient internal class in PatientPanel1 wasn't constructing the dates field, so I added it.
 
 ### Removed
+
+## [2024.10.30]
+
+### Added
+
+- PatientPanelSecondary with implementations for secondary methods
+- New kernel methods: containsPatient(), addPatient(Patient), and removeAny()
+- Patient1 class implementation of Patient interface--removed Patient subclass from PatientPanel1
+
+### Changed
+
+### Fixed
+
+### Removed
+- Patient subclass in PatientPanel1
