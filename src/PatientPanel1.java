@@ -3,6 +3,13 @@ import java.util.ArrayList;
 /**
  * PatientPanel proof of concept.
  *
+ * @convention <pre>
+ * [there are no Patient objects in this that share the same name and pcp]
+ * </pre>
+ * @correspondence <pre>
+ * this = [all the patients in a health care system,
+ * where each entry in this.patients corresponds to one patient]
+ * </pre>
  * @author A. Ghastine
  */
 public final class PatientPanel1 extends PatientPanelSecondary {
@@ -206,45 +213,22 @@ public final class PatientPanel1 extends PatientPanelSecondary {
         return this.patients.remove(0);
     }
 
-    /**
-     * Main method.
-     *
-     * @param args
-     */
-    public static void main(String... args) {
-        PatientPanel1 practice = new PatientPanel1();
-        System.out.println(practice.size());
-        practice.addPatient("John Doe", "Dr. Peck");
-        System.out.println(practice.size());
-        System.out.println(practice.getVisits("John Doe", "Dr. Peck"));
-        practice.getVisits("John Doe", "Dr. Peck").add("1/15/2024");
-        practice.getVisits("John Doe", "Dr. Peck").add("4/15/2024");
-        System.out.println(practice.getVisits("John Doe", "Dr. Peck"));
-        Patient removed = practice.removePatient("John Doe", "Dr. Peck");
-        System.out.println(practice.size());
-        System.out.println(removed.name());
-        System.out.println(removed.pcp());
-        System.out.println(removed.dates());
-    }
-
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+        this.patients = new ArrayList<Patient>();
     }
 
     @Override
-    public PatientPanelKernel newInstance() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException(
-                "Unimplemented method 'newInstance'");
+    public PatientPanel newInstance() {
+        return new PatientPanel1();
     }
 
     @Override
     public void transferFrom(PatientPanelKernel arg0) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException(
-                "Unimplemented method 'transferFrom'");
+        PatientPanel1 source = (PatientPanel1) arg0;
+        this.patients = source.patients;
+        source.clear();
+
     }
 
 }

@@ -66,3 +66,18 @@ the following form: YYYY.0M.0D.
 
 ### Removed
 - Patient subclass in PatientPanel1
+
+## [2024.11.7]
+
+### Added
+
+- Convention and correspondence for Patient1 and PatientPanel1
+- Implemented Standard methods for Patient1 and PatientPanel1
+- no-argument constructor to Patient1
+
+### Changed
+
+### Fixed
+- addVisit method unneccessarily removing a patient.
+
+### Removed

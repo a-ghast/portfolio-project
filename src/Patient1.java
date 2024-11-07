@@ -2,6 +2,15 @@ import java.util.ArrayList;
 
 /**
  * Public class of Patient with name, PCP, and dates fields.
+ *
+ * @convention <pre>
+ * [all entries in this.dates are String representations of dates]
+ * </pre>
+ * @correspondence <pre>
+ * this = [a patient named this.name with a primary care provider of this.pcp
+ * who has been seen on each of the dates in this.dates]
+ * </pre>
+ * @author A. Ghastine
  */
 public final class Patient1 implements Patient {
 
@@ -48,6 +57,15 @@ public final class Patient1 implements Patient {
     @Override
     public ArrayList<String> dates() {
         return this.dates;
+    }
+
+    /**
+     * No-argument constructor.
+     */
+    public Patient1() {
+        this.name = "";
+        this.pcp = "";
+        this.dates = new ArrayList<String>();
     }
 
     /**
@@ -108,21 +126,22 @@ public final class Patient1 implements Patient {
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+        this.name = "";
+        this.pcp = "";
+        this.dates = new ArrayList<String>();
     }
 
     @Override
     public Patient newInstance() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException(
-                "Unimplemented method 'newInstance'");
+        return new Patient1();
     }
 
     @Override
     public void transferFrom(Patient arg0) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException(
-                "Unimplemented method 'transferFrom'");
+        Patient1 source = (Patient1) arg0;
+        this.name = source.name;
+        this.pcp = source.pcp;
+        this.dates = source.dates;
+        source.clear();
     }
 }
