@@ -1,14 +1,11 @@
 import java.util.ArrayList;
 
-import components.standard.Standard;
-
 /**
  * PatientPanel Enhanced Interface with secondary methods.
  *
  * @author A. Ghastine
  */
-public interface PatientPanel
-        extends Standard<PatientPanelKernel>, PatientPanelKernel {
+public interface PatientPanel extends PatientPanelKernel {
     /**
      * Adds a visit to a Patient's data in the Panel.
      *

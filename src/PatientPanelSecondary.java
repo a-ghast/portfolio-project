@@ -77,13 +77,14 @@ public abstract class PatientPanelSecondary implements PatientPanel {
     }
 
     // ------------ Secondary Method Implementatons -----------------
+    // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
     @Override
     public void addVisit(String name, String pcp, String visit) {
-        Patient pat = this.removePatient(name, pcp);
         ArrayList<String> datesAlias = this.getVisits(name, pcp);
         datesAlias.addLast(visit);
     }
 
+    // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
     @Override
     public void updatePCP(String name, String oldPCP, String newPCP) {
         Patient pat = this.removePatient(name, oldPCP);
@@ -97,6 +98,7 @@ public abstract class PatientPanelSecondary implements PatientPanel {
 
     }
 
+    // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
     @Override
     public ArrayList<Patient> providerPanel(String pcp) {
         ArrayList<Patient> result = new ArrayList<>();
@@ -116,6 +118,7 @@ public abstract class PatientPanelSecondary implements PatientPanel {
         return result;
     }
 
+    // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
     @Override
     public void changeName(String oldName, String pcp, String newName) {
         Patient pat = this.removePatient(oldName, pcp);
